@@ -9,3 +9,12 @@
 *::after {
     box-sizing: inherit;
 }
+
+.button {
+    height: 80px;
+    width: 80px;
+}
+
+.zeroButton {
+    width: 168px
+}
