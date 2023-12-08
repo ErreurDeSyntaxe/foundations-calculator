@@ -65,10 +65,11 @@
     width: 70px;
     font-size: 24px;
     border-color: black;
-    border-radius: 20%;
+    border-radius: 5%;
+    margin-top: 3px;
 }
 
 .zeroButton {
     width: 148px;
-    border-radius: 14%;
+    border-radius: 5%;
 }
