@@ -40,6 +40,7 @@ main {
     font-size: 4em;
     font-family: monospace;
     width: 279px;
+    height: 60px;
     border: 5px solid #333;
     border-radius: 5px;
     padding: 10px;

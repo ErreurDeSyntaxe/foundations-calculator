@@ -1,3 +1,7 @@
+let firstTerm = "";
+let secondTerm = "";
+let operator = "";
+
 function add(num1, num2) {
     return num1 + num2;
 }
@@ -12,7 +16,7 @@ function multiply(num1, num2) {
 
 function divide(num1, num2) {
     if (num2 == 0) 
-        return "IDK IDC";
+        return "IDK";
     return num1 / num2;
 }
 
@@ -63,26 +67,49 @@ function clearAll() {
 }
 
 function updateDisplay(string) {
-    let firstTerm = "";
-    let secondTerm = "";
-    let operator = "";
     let display = document.querySelector(".display");
-    
+
+    if (string == "clearAll") {
+        display.textContent = "0";
+        firstTerm = "";
+        secondTerm = "";
+        operator = "";
+    }
+
+    if (display.textContent.length >= 9) {
+        display.textContent = "Can'tFit!";
+        return;
+    }
+
     switch (string) {
-        case "clearAll":
-            display.textContent = "0";
-            firstTerm = "";
-            secondTerm = "";
-            operator = "";
-            break;
         case "percent":
             display.textContent = display.textContent / 100;
             break;
         case "negative":
             display.textContent = -1 * display.textContent;
             break;
+        case "+":
+        case "-":
+        case "*":
+        case "/":
+            if (operator != "") break;
+            if (firstTerm == "") firstTerm = display.textContent;
+            operator = string;
+            display.textContent = string;
+            break;
+        case "=":
+            secondTerm = display.textContent;
+            display.textContent = operate(firstTerm, operator, secondTerm);
+            turnOnDecimal();
+            break;
+        case ".":
+
         default:
-            if (display.textContent == "0" && string != ".") {
+            if (display.textContent == "+" ||
+                display.textContent == "/" ||
+                display.textContent == "*" ||
+                display.textContent == "-") display.textContent = string;
+            else if (display.textContent == "0" && string != ".") {
                 display.textContent = string;
             }
             else display.textContent += string;
