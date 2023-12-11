@@ -47,6 +47,20 @@ function operate(num1, operator, num2) {
     return result;
 }
 
+function displaySomething(string) {
+    let display = document.querySelector(".display");
+    display.textContent = string;
+}
+
+function activateButtons() {
+    let numberButtons = document.querySelector(".numberButtons").children;
+    for (let i = 0; i < numberButtons.length; i++) {
+        numberButtons[i].addEventListener("click", () => {
+            displaySomething(numberButtons[i].textContent);
+        });
+    }
+}
+
 function setTheme() {
     /* Earth Tones
     Frame Background: #8c756a
@@ -77,3 +91,5 @@ function setTheme() {
     Operation Buttons: #ff4081 
     */
 }
+
+activateButtons();
