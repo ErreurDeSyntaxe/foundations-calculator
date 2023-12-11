@@ -12,7 +12,7 @@ function multiply(num1, num2) {
 
 function divide(num1, num2) {
     if (num2 == 0) 
-        return "這樣不對嘍";
+        return "IDK IDC";
     return num1 / num2;
 }
 
@@ -47,18 +47,70 @@ function operate(num1, operator, num2) {
     return result;
 }
 
-function displaySomething(string) {
+function turnOffDecimal() {
+    let decimalPoint = document.querySelector(".decimalPoint");
+    decimalPoint.disabled = true;
+}
+
+function turnOnDecimal() {
+    let decimalPoint = document.querySelector(".decimalPoint");
+    decimalPoint.disabled = false;
+}
+
+function clearAll() {
+    updateDisplay("clearAll");
+    turnOnDecimal();
+}
+
+function updateDisplay(string) {
+    let firstTerm = "";
+    let secondTerm = "";
+    let operator = "";
     let display = document.querySelector(".display");
-    display.textContent = string;
+    
+    switch (string) {
+        case "clearAll":
+            display.textContent = "0";
+            firstTerm = "";
+            secondTerm = "";
+            operator = "";
+            break;
+        case "percent":
+            display.textContent = display.textContent / 100;
+            break;
+        case "negative":
+            display.textContent = -1 * display.textContent;
+            break;
+        default:
+            if (display.textContent == "0" && string != ".") {
+                display.textContent = string;
+            }
+            else display.textContent += string;
+            break;
+    }
 }
 
 function activateButtons() {
     let numberButtons = document.querySelector(".numberButtons").children;
     for (let i = 0; i < numberButtons.length; i++) {
         numberButtons[i].addEventListener("click", () => {
-            displaySomething(numberButtons[i].textContent);
+            updateDisplay(numberButtons[i].textContent);
+            if (numberButtons[i].textContent == ".") turnOffDecimal();
         });
     }
+
+    let operations = document.querySelector(".operationButtons").children;
+    for (let i = 0; i < operations.length; i++) {
+        operations[i].addEventListener("click", () => {
+            updateDisplay(operations[i].textContent);
+            turnOnDecimal();
+        });
+    }
+
+    let functions = document.querySelector(".functionButtons").children;
+    functions[0].addEventListener("click", () => clearAll());
+    functions[1].addEventListener("click", () => updateDisplay("negative"))
+    functions[2].addEventListener("click", () => updateDisplay("percent"));
 }
 
 function setTheme() {
