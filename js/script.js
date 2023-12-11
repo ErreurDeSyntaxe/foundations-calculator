@@ -46,3 +46,34 @@ function operate(num1, operator, num2) {
     if(typeof result == "number") result = Math.floor(result * 100) / 100;
     return result;
 }
+
+function setTheme() {
+    /* Earth Tones
+    Frame Background: #8c756a
+    Display Background: #7c6a65
+    Function Buttons: #a1887f
+    Number Buttons: #bcaaa4
+    Operation Buttons: #8c7b75
+
+    Ocean Vibes
+    Frame Background: #607d8b
+    Display Background: #546e7a
+    Function Buttons: #80cbc4
+    Number Buttons: #90a4ae
+    Operation Buttons: #78909c
+
+    Pastel Paradise
+    Frame Background: #c5e1a5
+    Display Background: #aed581
+    Function Buttons: #81c784
+    Number Buttons: #ffcc80
+    Operation Buttons: #90a4ae
+
+    Midnight Noir
+    Frame Background: #121212
+    Display Background: #333
+    Function Buttons: #2196f3 (Royal Blue)
+    Number Buttons: #ff9800 (Orange)
+    Operation Buttons: #ff4081 
+    */
+}
