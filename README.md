@@ -25,3 +25,16 @@ The next step will be to display the numbers when buttons are clicked. Then,
 the implementation of the "function buttons (AC, +/-, %). Then, the 
 implementation of the operator buttons (+-*/) will follow. That's the 
 hardest part of the project according to the lesson. 
+
+# Third Entry: The End
+
+Why do JavaScript numbers behave so weirdly? 4/100/100 = 0.0003999999???
+That caused me a massive headache, and I still haven't figured out why. The
+finished project doesn't have just the basic requirements listed on the lesson
+page, but it doesn't have all the bonuses either. 
+
+I had to rewrite completely the function that called upon operate(). I am 
+unsure what mistake I had written in, but rewriting it was relatively easy,
+and it fixed the problem I had. At the time of writing, I don't recall what said
+problem was. This is a lesson in writing frequent diary entries, the same way
+that I already learned to commit often. 
