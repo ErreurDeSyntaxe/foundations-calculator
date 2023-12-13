@@ -3,21 +3,22 @@ let secondTerm = "";
 let operator = "";
 
 function add(num1, num2) {
-    return num1 + num2;
+    return (num1 + num2);
 }
 
 function subtract(num1, num2) {
-    return num1 - num2;
+    return (num1 - num2);
 }
 
 function multiply(num1, num2) {
-    return num1 * num2;
+    return (num1 * num2);
 }
 
 function divide(num1, num2) {
-    if (num2 == 0) 
+    if (num2 == 0)
         return "IDK";
-    return num1 / num2;
+    else
+        return +((num1 / num2).toFixed(6));
 }
 
 //This feature is not necessary
@@ -43,13 +44,17 @@ function operate(num1, operator, num2) {
             result =  divide(num1, num2);
             break;
         default:
-            result = 0;
+            result = "error??";
             break;
     }
-    //rounds the result to 7 decimals IF there was no divide by zero
+    // rounds the result to 7 decimals IF there was no divide by zero
     if (typeof result == "number")
         result = Math.floor(result * 10000000) / 10000000;
     return result;
+    // console.log(Math.floor(result * 10000000));
+    // console.log(result / 10000000);
+    // result = (Math.floor(result * 10000000) / 10000000).toFixed(6);
+    // return result;
 }
 
 function turnOffDecimal() {
@@ -70,53 +75,71 @@ function clearAll() {
 function updateDisplay(string) {
     let display = document.querySelector(".display");
 
-    if (string == "clearAll") {
-        display.textContent = "0";
-        firstTerm = "";
-        secondTerm = "";
-        operator = "";
-        return;
-    }
-
     switch (string) {
-        case "percent":
-            display.textContent = display.textContent / 100; /*parseFloat(display.textContent / 100).toFixed(4);*/
-            turnOffDecimal();
-            break;
-        case "negative":
-            display.textContent = -1 * display.textContent;
-            break;
-        case "+":
-        case "-":
-        case "*":
-        case "/":
-            if (operator != "") break;
-            if (firstTerm == "") firstTerm = display.textContent;
-            operator = string;
-            display.textContent = string;
-            break;
-        case "=":
-            secondTerm = display.textContent;
-            display.textContent = operate(+firstTerm, operator, +secondTerm);
+        case "clearAll":
+            firstTerm = "";
+            secondTerm = "";
+            operator = "";
+            display.textContent = "0";
             turnOnDecimal();
             break;
+        case "negative":
+            display.textContent = display.textContent * -1;
+            break;
+        case "percent":
+            display.textContent = ((display.textContent) / 100).toFixed(6);
+            display.textContent = +display.textContent;
+            console.log(display.textContent);
+            break;
         case ".":
-
-        default:
             if (display.textContent == "+" ||
-                display.textContent == "/" ||
+                display.textContent == "-" ||
                 display.textContent == "*" ||
-                display.textContent == "-") display.textContent = string;
-            else if (display.textContent == "0" && string != ".") {
-                display.textContent = string;
+                display.textContent == "/") {
+                    display.textContent = "0.";
+                    turnOffDecimal();
             }
+            if (display.textContent.indexOf(".") == -1) {
+                display.textContent += string;
+                turnOffDecimal();
+            }
+            break;
+        case "+":
+        case "*":
+        case "/":
+        case "-":
+            if (operator != "") break;
+            firstTerm = display.textContent;
+            display.textContent = string;
+            operator = string;
+            break;
+        case "=":
+            if (display.textContent == "+" ||
+                display.textContent == "-" ||
+                display.textContent == "*" ||
+                display.textContent == "/") break;
+            else if (operator == "") break;
+            else {
+                secondTerm = display.textContent;
+                display.textContent = operate(+firstTerm, operator, +secondTerm);
+                secondTerm = "";
+                operator = "";
+                firstTerm = display.textContent;
+                turnOnDecimal();
+                break;
+            }
+        default:
+            if (display.textContent == "0" ||
+                display.textContent == "+" ||
+                display.textContent == "-" ||
+                display.textContent == "*" ||
+                display.textContent == "/") display.textContent = string;
             else display.textContent += string;
             break;
     }
 
     if (display.textContent.length > 9) {
         display.textContent = "Can'tFit!";
-        return;
     }
 }
 
