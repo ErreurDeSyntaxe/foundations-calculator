@@ -60,15 +60,15 @@ main {
 }
 
 .functionButtons > * {
-    background-color: #2196f3;
+    background-color: #00e8fc;
 }
 
 .numberButtons > * {
-    background-color: #ff9800;
+    background-color: #f96e46;
 }
 
 .operationButtons > * {
-    background-color: #ff4081;
+    background-color: #f9c846;
 }
 
 .buttonsPanel {

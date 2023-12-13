@@ -46,8 +46,9 @@ function operate(num1, operator, num2) {
             result = 0;
             break;
     }
-    //rounds the result to two decimals IF there was no divide by zero
-    if(typeof result == "number") result = Math.floor(result * 100) / 100;
+    //rounds the result to 7 decimals IF there was no divide by zero
+    if (typeof result == "number")
+        result = Math.floor(result * 10000000) / 10000000;
     return result;
 }
 
@@ -74,16 +75,13 @@ function updateDisplay(string) {
         firstTerm = "";
         secondTerm = "";
         operator = "";
-    }
-
-    if (display.textContent.length >= 9) {
-        display.textContent = "Can'tFit!";
         return;
     }
 
     switch (string) {
         case "percent":
-            display.textContent = display.textContent / 100;
+            display.textContent = display.textContent / 100; /*parseFloat(display.textContent / 100).toFixed(4);*/
+            turnOffDecimal();
             break;
         case "negative":
             display.textContent = -1 * display.textContent;
@@ -99,7 +97,7 @@ function updateDisplay(string) {
             break;
         case "=":
             secondTerm = display.textContent;
-            display.textContent = operate(firstTerm, operator, secondTerm);
+            display.textContent = operate(+firstTerm, operator, +secondTerm);
             turnOnDecimal();
             break;
         case ".":
@@ -114,6 +112,11 @@ function updateDisplay(string) {
             }
             else display.textContent += string;
             break;
+    }
+
+    if (display.textContent.length > 9) {
+        display.textContent = "Can'tFit!";
+        return;
     }
 }
 
