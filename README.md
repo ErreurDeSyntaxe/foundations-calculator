@@ -1,37 +1,40 @@
 # top-calculator
 An in-browser simple calculator
 
-# First Entry: The Odin Project Foundations' Final Project
+# Preview
 
-This is the culmination of the past month's efforts. It has been roughly 
-thirty days since the beginning of my studies along the TOP path. The
-road has been tough at times (flexbox, array methods), and easier at times.
-After this project, I will opt for the JavaScript path because it is shorter
-and I need to get a job.
+<div align="center">
+    <img src="./project-preview.png">
+</div>
 
-The steps for problem solving are Understanding, Planning, Pseudocoding, and
-Dividing. Let's start with that today. There might be time for coding the basic
-html and CSS.
+# Links
 
-# Second Entry: Arithmetic and Style
+-[Assignment Page (Dec '23)](https://www.theodinproject.com/lessons/foundations-calculator)
 
-The calculator looks nice (although I just noticed that the space between the
-buttons isn't the same left-right and top-bottom). The addition, subtraction, 
-multiplication, and division functions all work well. The operate function that
-can call the four previous function works, too. The display and buttons are
-completely unresponsive. 
+-[Finished Project](https://erreurdesyntaxe.github.io/top-calculator/)
 
-The next step will be to display the numbers when buttons are clicked. Then,
-the implementation of the "function buttons (AC, +/-, %). Then, the 
-implementation of the operator buttons (+-*/) will follow. That's the 
-hardest part of the project according to the lesson. 
+# Notable Features
 
-# Third Entry: The End
+-"Clear" button  
+-"+/-" button  
+-Decimal point button  
+-Percentage button  
+-Chainable operation buttons  (9 + 1 * 3 = 30)
 
-Why do JavaScript numbers behave so weirdly? 4/100/100 = 0.0003999999???
-That caused me a massive headache, and I still haven't figured out why. The
-finished project doesn't have just the basic requirements listed on the lesson
-page, but it doesn't have all the bonuses either. 
+# Challenges
+
+-The decimal point in JavaScript  
+-Chaining multiple operations  
+-User-proofing the arithmetic buttons  
+
+# Lessons
+
+-Don't trust JavaScript numbers  
+
+# Diary
+
+How much time did I waste on the decimal issue? Why do JavaScript numbers 
+behave so weirdly? 4/100/100 = 0.0003999999???
 
 I had to rewrite completely the function that called upon operate(). I am 
 unsure what mistake I had written in, but rewriting it was relatively easy,
