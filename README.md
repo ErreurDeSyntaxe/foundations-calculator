@@ -11,7 +11,7 @@ An in-browser (simple) calculator
 
 -[Assignment Page (Dec '23)](https://www.theodinproject.com/lessons/foundations-calculator)
 
--[Finished Project](https://erreurdesyntaxe.github.io/top-calculator/)
+-[Finished Project](https://github.com/ErreurDeSyntaxe/foundations-calculator)
 
 # Notable Features
 
