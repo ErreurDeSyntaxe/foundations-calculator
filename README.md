@@ -1,5 +1,5 @@
-# top-calculator
-An in-browser simple calculator
+# foundations-calculator
+An in-browser (simple) calculator
 
 # Preview
 
